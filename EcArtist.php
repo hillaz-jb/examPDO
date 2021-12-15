@@ -3,7 +3,7 @@
 class EcArtist extends EcAbstractConnectToDb
 {
     public function selectAllSortByName(): array{
-        $query = 'SELECT * FROM artist ORDER BY `name` DESC ';
+        $query = 'SELECT * FROM artist ORDER BY `name` ASC ';
         $resultats = $this->getPdo()->query($query);
         return $resultats->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -39,6 +39,16 @@ class EcArtist extends EcAbstractConnectToDb
             ':idArtist' => $idArtist,
             ':name' => $name,
             ':age' => $age,
+        ]);
+    }
+
+    public function delete(string $idArtist)
+    {
+        $pdo = $this->getPdo();
+        $query = "DELETE FROM `artist` WHERE id = :idArtist";
+        $resultats = $pdo->prepare($query);
+        $resultats->execute([
+            ':idArtist' => $idArtist,
         ]);
     }
 

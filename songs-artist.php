@@ -46,21 +46,22 @@ if (isset($_GET['id'])){
                     ?>
                     <tr>
                         <td><?php echo $song['title'] ?></td>
-                        <td><p><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#movie">Supprimer</button></p>
-                            <div class="modal fade" id="movie" tabindex="-1" aria-labelledby="<?php echo $song['id']?>" aria-hidden="true">
+                        <td><button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#<?php echo 'modal'.$song['id']?>">Supprimer</button>
+                            <div class="modal fade" id="<?php echo 'modal'.$song['id']?>" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="<?php echo $song['id']?>">Supprimer la chanson <?php echo $song['title']?> ?</h5>
+                                            <h5 class="modal-title" id="modalLabel">Supprimer la chanson "<?php echo $song['title']?>" ?</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="delete-song.php?id-song=<?php echo $song['id']?>&id-artist=<?php echo $selectedArtist['id'] ?>" class="btn btn-danger">Supprimer</a>
+                                            <a href="delete.php?id-song=<?php echo $song['id']?>&id-artist=<?php echo $selectedArtist['id'] ?>" class="btn btn-danger">Supprimer</a>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Retour</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div></td>
+                            </div>
+                        </td>
                     </tr>
                     <?php
                 }

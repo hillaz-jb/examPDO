@@ -3,7 +3,7 @@
 class EcSong extends EcAbstractConnectToDb
 {
     public function selectAllSortByName(): array{
-        $query = 'SELECT * FROM song ORDER BY `name` DESC ';
+        $query = 'SELECT * FROM song ORDER BY `title` ASC ';
         $resultats = $this->getPdo()->query($query);
         return $resultats->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -27,12 +27,21 @@ class EcSong extends EcAbstractConnectToDb
         ]);
     }
 
-    public function dateFormat(string|null $date = ''): string|null
+    public function selectFilteredSong(string $field, string $value): array
     {
-        if ($date === null) {
-            return null;
+        try {
+            $query = "SELECT * FROM song WHERE $field LIKE :value";
+            $resultats = $this->getPdo()->prepare($query);
+            $resultats->execute([
+                ':value' => "%$value%",
+            ]);
+        } catch (Exception) {
+            return [];
         }
-        return (new DateTime($date))->format('Y-m-d');
+
+        return $resultats->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
 
 }

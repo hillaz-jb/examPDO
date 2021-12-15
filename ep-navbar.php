@@ -15,62 +15,21 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand mx-5" href="#">Examen PDO</a>
+                <a class="navbar-brand mx-5" href="index.php">Examen PDO</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="list-artists.php">Les artistes</a>
+                            <a class="nav-link" aria-current="page" href="list-artists.php">Les artistes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Liste XXX</a>
+                            <a class="nav-link" href="list-songs.php">Toutes les chansons</a>
                         </li>
                     </ul>
-                    <span class="navbar-text me-5"><?php if (isset($_SESSION['user'])){
-                            ?>
-                            <div class="text-light d-flex flex-row">Bienvenue <?php echo $_SESSION['user']['firstName'] ?><a class="text-danger ms-5" aria-current="page" href="disconnect.php">Se déconnecter</a></div>
-                            <?php
-                        }
-                        else{
-                            ?>
-                            <div class="text-light">Non Connecté</div>
-                            <?php
-                        }
-                        ?></span>
                 </div>
             </div>
         </nav>
-
-
-<!--        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">-->
-<!--            <div class="container-fluid">-->
-<!--                <a class="navbar-brand ms-5" href="index.php">Examen PDO</a>-->
-<!--                <div class="navbar-collapse">-->
-<!--                    <ul class="navbar-nav">-->
-<!--                        <li class="nav-item">-->
-<!--                            <a class="nav-link" aria-current="page" href="">Liste XXX</a>-->
-<!--                        </li>-->
-<!--                        <li class="nav-item">-->
-<!--                            <a class="nav-link" aria-current="page" href="">Ajouter YYY</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="me-5">-->
-<!--                    --><?php //if (isset($_SESSION['user'])){
-//                        ?>
-<!--                        <div class="text-light d-flex flex-row">Bienvenue --><?php //echo $_SESSION['user']['firstName'] ?><!--<a class="text-danger ms-5" aria-current="page" href="disconnect.php">Se déconnecter</a></div>-->
-<!--                        --><?php
-//                    }
-//                    else{
-//                        ?>
-<!--                        <div class="text-light">Non Connecté</div>-->
-<!--                        --><?php
-//                    }
-//                    ?>
-<!--                </div>-->
-<!--            </div>-->
-<!--        </nav>-->
     </header>
 
