@@ -17,15 +17,20 @@ if (isset($_GET['id'])){
     $songsTable->connection('exam_pdo');
     $songsArtist = $songsTable->selectArtistSongs($_GET['id']);
 }
-
-
-
-
 ?>
 <main class="container">
 
     <section>
         <h1 class="text-center mt-5 mb-3"><i class="fas fa-music me-4"></i>Chansons de <?php echo $selectedArtist['name'] ?></h1>
+        <?php
+        if (isset($_GET['delete'])) {
+            echo '<div class="text-success mb-3">Vous avez supprimez une chanson.</div>';
+        }
+        if ($songsArtist === []) {
+            echo '<div class="mb-3">Cet artiste n\'a pas encore de chanson.</div>';
+        }
+        else {
+        ?>
 
         <div class="d-flex flex-end gap-4">
             <table class="table">
@@ -50,7 +55,7 @@ if (isset($_GET['id'])){
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="delete.php?id=<?php echo $song['id']?>" class="btn btn-danger">Supprimer</a>
+                                            <a href="delete-song.php?id-song=<?php echo $song['id']?>&id-artist=<?php echo $selectedArtist['id'] ?>" class="btn btn-danger">Supprimer</a>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Retour</button>
                                         </div>
                                     </div>
@@ -62,11 +67,10 @@ if (isset($_GET['id'])){
                 ?>
                 </tbody>
             </table>
-
-
-
-
         </div>
+        <?php
+        }
+        ?>
     </section>
 </main>
 

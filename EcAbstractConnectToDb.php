@@ -22,20 +22,7 @@ class EcAbstractConnectToDb
         return $this->pdo;
     }
 
-    /**
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void
-    {
-        $this->pdo = $pdo;
-    }
 
-    public function dateFormat(string|null $date = ''): string|null
-    {
-        if ($date === null) {
-            return null;
-        }
-        return (new DateTime($date))->format('Y-m-d');
-    }
+
 
 }

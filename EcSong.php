@@ -17,4 +17,22 @@ class EcSong extends EcAbstractConnectToDb
         return $resultats->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function delete(string $idSong)
+    {
+        $pdo = $this->getPdo();
+        $query = "DELETE FROM `song` WHERE id = :idSong";
+        $resultats = $pdo->prepare($query);
+        $resultats->execute([
+            ':idSong' => $idSong,
+        ]);
+    }
+
+    public function dateFormat(string|null $date = ''): string|null
+    {
+        if ($date === null) {
+            return null;
+        }
+        return (new DateTime($date))->format('Y-m-d');
+    }
+
 }
