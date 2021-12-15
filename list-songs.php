@@ -1,6 +1,6 @@
 <?php
 include 'ep-navbar.php';
-include 'vendor/autoload.php';
+
 include 'EcAbstractConnectToDb.php';
 include 'EcSong.php';
 include 'EcArtist.php';

@@ -1,5 +1,5 @@
 <?php
-include 'vendor/autoload.php';
+
 include 'EcAbstractConnectToDb.php';
 include 'EcSong.php';
 
