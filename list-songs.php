@@ -46,7 +46,11 @@ else {
                     </div>
                 </form>
             </div>
-
+            <?php
+            if ($noMatch == true) {
+            echo '<div class="mb-3">Aucun resultat !</div>';
+            }
+            ?>
 
             <table class="table">
                 <thead>
@@ -64,8 +68,6 @@ else {
                         <td><?php echo $song['title'] ?></td>
                         <td><?php echo EcTools::durationFormat($song['time']) ?> </td>
                         <td><?php echo EcTools::dateFormat($song['published_at'],'d-m-Y') ?> </td>
-<!--                        <td><a class="btn btn-dark" href="songs-artist.php?id=--><?php //echo $artist['id'] ?><!--"><i class="fas fa-long-arrow-alt-right"></i></a></td>-->
-<!--                        <td><a href="form-artist.php?id=--><?php //echo $artist['id']?><!--" class="btn btn-primary">Modifier</a></td>-->
                     </tr>
                     <?php
                 }
