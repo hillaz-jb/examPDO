@@ -25,7 +25,7 @@ if (isset($_GET['id'])){
 <main class="container">
 
     <section>
-        <h1 class="text-center">Chanson(s) de <?php echo $selectedArtist['name'] ?></h1>
+        <h1 class="text-center mt-5 mb-3"><i class="fas fa-music me-4"></i>Chansons de <?php echo $selectedArtist['name'] ?></h1>
 
         <div class="d-flex flex-end gap-4">
             <table class="table">

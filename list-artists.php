@@ -6,18 +6,17 @@ include 'EcArtist.php';
 
 $artistTable = new EcArtist();
 $artistTable->connection('exam_pdo');
-
 $allArtists = $artistTable->selectAllSortByName();
-
-
-
-
 ?>
     <main class="container">
-
         <section>
-            <h1 class="text-center"><i class="fas fa-film me-2 my-5"></i>Liste d'artistes</h1>
-
+            <h1 class="text-center my-5"><i class="fas fa-film me-3"></i>Liste d'artistes</h1>
+            <div class="text-center mb-3"><a href="form-artist.php" class="btn btn-success">Ajouter un ariste</a></div>
+            <?php
+                if (isset($_GET['update'])) {
+                    echo '<div class="text-center text-success fw-3 mb-3">l\'artiste a bien été modifié.</div>';
+                }
+            ?>
             <table class="table">
                 <thead>
                 <tr>
@@ -42,8 +41,6 @@ $allArtists = $artistTable->selectAllSortByName();
                 ?>
                 </tbody>
             </table>
-
-
         </section>
     </main>
 

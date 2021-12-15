@@ -19,7 +19,7 @@ class EcArtist extends EcAbstractConnectToDb
         return $resultats->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function insertArtist(string $name, int $age = null)
+    public function insertArtist(string $name, int $age)
     {
         $pdo = $this->getPdo();
         $query = 'INSERT INTO artist(name, age) VALUES (:name, :age)';
@@ -30,13 +30,13 @@ class EcArtist extends EcAbstractConnectToDb
         ]);
     }
 
-    public function updateArtist(string $id, string $name, int $age = null)
+    public function updateArtist(string $idArtist, string $name, int $age)
     {
         $pdo = $this->getPdo();
-        $query = "UPDATE artist SET name = :name, type = :age WHERE id= :idArtist";
+        $query = "UPDATE artist SET name = :name, age = :age WHERE id= :idArtist";
         $resultats = $pdo->prepare($query);
         $resultats->execute([
-            ':idArtist' => $id,
+            ':idArtist' => $idArtist,
             ':name' => $name,
             ':age' => $age,
         ]);
