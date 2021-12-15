@@ -9,7 +9,7 @@ include 'EcTools.php';
 $navSongs = 'active';
 
 $songTable = new EcSong();
-$songTable->connection('exam_pdo');
+$songTable->connection();
 
 
 $field = '';

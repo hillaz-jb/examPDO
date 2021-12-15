@@ -2,7 +2,8 @@
 
 class EcArtist extends EcAbstractConnectToDb
 {
-    public function selectAllSortByName(): array{
+    public function selectAllSortByName(): array
+    {
         $query = 'SELECT * FROM artist ORDER BY `name` ASC ';
         $resultats = $this->getPdo()->query($query);
         return $resultats->fetchAll(PDO::FETCH_ASSOC);

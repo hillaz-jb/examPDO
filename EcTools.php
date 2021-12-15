@@ -10,10 +10,10 @@ class EcTools
     public static function durationFormat(int $duration): string
     {
         $seconds = $duration % 60;
-        $min = floor( $duration / 60 );
-        if( $min == 0 )
-            return $seconds.'s';
+        $min = floor($duration / 60);
+        if ($min == 0)
+            return $seconds . 's';
         else
-            return $min.'min '.$seconds.'s';
+            return $min . 'min ' . $seconds . 's';
     }
 }
